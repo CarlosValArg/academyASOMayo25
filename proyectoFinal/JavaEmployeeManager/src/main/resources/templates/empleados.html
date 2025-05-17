@@ -47,6 +47,7 @@
                         <th>Fecha Contratación</th>
                         <th>Salario</th>
                         <th>Departamento</th>
+                        <th>Tipo de Contrato</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -59,6 +60,7 @@
                         <td th:text="${#temporals.format(empleado.fechaContratacion, 'dd/MM/yyyy')}"></td>
                         <td th:text="${'$' + empleado.salario}"></td>
                         <td th:text="${empleado.departamento}"></td>
+                        <td th:text="${#strings.capitalize(empleado.tipoContrato.name().replace('_',' ').toLowerCase())}"></td>
                         <td>
                             <div class="btn-group">
                                 <a th:href="@{/empleados/editar/{id}(id=${empleado.id})}" class="btn btn-sm btn-outline-primary">

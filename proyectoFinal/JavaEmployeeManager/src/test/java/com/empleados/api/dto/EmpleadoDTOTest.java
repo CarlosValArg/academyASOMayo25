@@ -4,6 +4,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import com.empleados.api.model.TipoContrato;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -26,7 +28,8 @@ class EmpleadoDTOTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         // Segundo objeto con valores diferentes
@@ -37,7 +40,8 @@ class EmpleadoDTOTest {
                 "ana.garcia@example.com",
                 LocalDate.of(2019, 5, 10),
                 new BigDecimal("48000.00"),
-                "Recursos Humanos"
+                "Recursos Humanos",
+                TipoContrato.TIEMPO_INDETERMINADO
         );
 
         // Tercer objeto idéntico al primero para pruebas de equals y hashCode
@@ -48,7 +52,8 @@ class EmpleadoDTOTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         // Objeto nulo para pruebas de equals
@@ -142,7 +147,8 @@ class EmpleadoDTOTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
         
         // Debería ser distinto porque el nombre cambió
@@ -156,7 +162,8 @@ class EmpleadoDTOTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("60000.00"), // salario distinto
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
         
         // Debería ser distinto porque el salario cambió

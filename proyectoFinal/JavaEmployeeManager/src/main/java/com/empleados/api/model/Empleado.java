@@ -46,4 +46,9 @@ public class Empleado {
 
     private String departamento;
     
+    @NotNull(message = "El tipo de contrato es obligatorio")
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_contrato", nullable = false)
+    private TipoContrato tipoContrato;
+    
 }

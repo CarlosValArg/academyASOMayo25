@@ -3,6 +3,7 @@ package com.empleados.api.service;
 import com.empleados.api.dto.EmpleadoDTO;
 import com.empleados.api.exception.ResourceNotFoundException;
 import com.empleados.api.model.Empleado;
+import com.empleados.api.model.TipoContrato;
 import com.empleados.api.repository.EmpleadoRepository;
 import com.empleados.api.service.impl.EmpleadoServiceImpl;
 import com.empleados.api.util.TestDataBuilder;
@@ -112,7 +113,8 @@ class EmpleadoServiceTest {
                 newEmpleadoDTO.getEmail(),
                 newEmpleadoDTO.getFechaContratacion(),
                 newEmpleadoDTO.getSalario(),
-                newEmpleadoDTO.getDepartamento()
+                newEmpleadoDTO.getDepartamento(),
+                newEmpleadoDTO.getTipoContrato()
         );
         
         Empleado savedEmpleado = new Empleado(
@@ -122,7 +124,8 @@ class EmpleadoServiceTest {
                 newEmpleadoDTO.getEmail(),
                 newEmpleadoDTO.getFechaContratacion(),
                 newEmpleadoDTO.getSalario(),
-                newEmpleadoDTO.getDepartamento()
+                newEmpleadoDTO.getDepartamento(),
+                newEmpleadoDTO.getTipoContrato()
         );
         
         when(empleadoRepository.findByEmail(anyString())).thenReturn(Optional.empty());
@@ -167,7 +170,8 @@ class EmpleadoServiceTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("55000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         Empleado updatedEmpleado = new Empleado(
@@ -177,7 +181,8 @@ class EmpleadoServiceTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("55000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         when(empleadoRepository.findById(1L)).thenReturn(Optional.of(empleado));
@@ -221,7 +226,8 @@ class EmpleadoServiceTest {
                 "ana.garcia@example.com", // Email de otro empleado existente
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("55000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         when(empleadoRepository.findById(1L)).thenReturn(Optional.of(empleado));
@@ -313,7 +319,8 @@ class EmpleadoServiceTest {
                 "test.user@example.com",
                 LocalDate.of(2022, 5, 15),
                 new BigDecimal("60000.00"),
-                "IT"
+                "IT",
+                TipoContrato.TIEMPO_DETERMINADO
         );
         
         // Primero configuramos el mock

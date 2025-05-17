@@ -2,6 +2,7 @@ package com.empleados.api.integration;
 
 import com.empleados.api.dto.EmpleadoDTO;
 import com.empleados.api.model.Empleado;
+import com.empleados.api.model.TipoContrato;
 import com.empleados.api.repository.EmpleadoRepository;
 import com.empleados.api.util.TestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -140,7 +141,8 @@ public class EmpleadoIntegrationIT {
                 "pedro.sanchez@example.com", 
                 LocalDate.of(2021, 3, 5), 
                 new BigDecimal("52000.00"), 
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.CAPACITACION_INICIAL
         );
         
         empleadoRepository.save(empleado1);
@@ -181,7 +183,8 @@ public class EmpleadoIntegrationIT {
                 "juan.perez@example.com", // Email duplicado
                 LocalDate.now(),
                 new BigDecimal("45000.00"),
-                "Marketing"
+                "Marketing",
+                TipoContrato.OBRA_SERVICIO
         );
 
         mockMvc.perform(post("/api/empleados")
@@ -198,6 +201,7 @@ public class EmpleadoIntegrationIT {
                 "invalid-email", // Email inválido
                 LocalDate.now().plusDays(1), // Fecha futura
                 new BigDecimal("-1000.00"), // Salario negativo
+                null,
                 null
         );
 
@@ -235,7 +239,8 @@ public class EmpleadoIntegrationIT {
                     "email" + i + "@example.com",
                     LocalDate.now().minusYears(1),
                     new BigDecimal("50000.00"),
-                    "Departamento" + (i % 3)
+                    "Departamento" + (i % 3),
+                    TipoContrato.TIEMPO_DETERMINADO
             );
             empleadoRepository.save(empleado);
         }

@@ -2,6 +2,7 @@ package com.empleados.api.util;
 
 import com.empleados.api.dto.EmpleadoDTO;
 import com.empleados.api.model.Empleado;
+import com.empleados.api.model.TipoContrato;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -24,7 +25,8 @@ public class TestDataBuilder {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
     }
 
@@ -39,7 +41,8 @@ public class TestDataBuilder {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
     }
 
@@ -54,7 +57,8 @@ public class TestDataBuilder {
                 "ana.garcia@example.com",
                 LocalDate.of(2019, 5, 10),
                 new BigDecimal("48000.00"),
-                "Recursos Humanos"
+                "Recursos Humanos",
+                TipoContrato.TIEMPO_INDETERMINADO
         );
     }
 
@@ -69,7 +73,8 @@ public class TestDataBuilder {
                 "ana.garcia@example.com",
                 LocalDate.of(2019, 5, 10),
                 new BigDecimal("48000.00"),
-                "Recursos Humanos"
+                "Recursos Humanos",
+                TipoContrato.TIEMPO_INDETERMINADO
         );
     }
 
@@ -84,7 +89,8 @@ public class TestDataBuilder {
                 "carlos.rodriguez@example.com",
                 LocalDate.of(2021, 3, 22),
                 new BigDecimal("52000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.OBRA_SERVICIO
         );
     }
 
@@ -99,7 +105,8 @@ public class TestDataBuilder {
                 "email-invalido", // Email inválido
                 LocalDate.now().plusDays(1), // Fecha futura (inválida)
                 new BigDecimal("-1000.00"), // Salario negativo
-                ""
+                "",
+                null
         );
     }
 

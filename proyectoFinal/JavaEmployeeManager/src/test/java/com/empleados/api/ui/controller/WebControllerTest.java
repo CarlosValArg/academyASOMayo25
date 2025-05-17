@@ -1,6 +1,7 @@
 package com.empleados.api.ui.controller;
 
 import com.empleados.api.dto.EmpleadoDTO;
+import com.empleados.api.model.TipoContrato;
 import com.empleados.api.service.EmpleadoService;
 import com.empleados.api.util.TestDataBuilder;
 import org.junit.jupiter.api.BeforeEach;
@@ -129,9 +130,11 @@ class WebControllerTest {
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(false);
         RedirectAttributes redirectAttributes = mock(RedirectAttributes.class);
+        
+        Model model = mock(Model.class);
 
         // Act
-        String result = webController.guardarEmpleado(newEmpleadoDTO, bindingResult, redirectAttributes);
+        String result = webController.guardarEmpleado(newEmpleadoDTO, bindingResult, model, redirectAttributes);
         
         // Assert
         assertEquals("redirect:/empleados", result);
@@ -170,16 +173,19 @@ class WebControllerTest {
             "juan.perez@example.com",
             LocalDate.of(2020, 1, 15),
             new BigDecimal("55000.00"),
-            "Tecnología"
+            "Tecnología",
+            TipoContrato.TIEMPO_DETERMINADO
         );
         
         when(empleadoService.updateEmpleado(eq(1L), any(EmpleadoDTO.class))).thenReturn(updatedEmpleadoDTO);
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(false);
         RedirectAttributes redirectAttributes = mock(RedirectAttributes.class);
+        
+        Model model = mock(Model.class);
 
         // Act
-        String result = webController.actualizarEmpleado(1L, updatedEmpleadoDTO, bindingResult, redirectAttributes);
+        String result = webController.actualizarEmpleado(1L, updatedEmpleadoDTO, bindingResult, model, redirectAttributes);
         
         // Assert
         assertEquals("redirect:/empleados", result);
@@ -211,9 +217,11 @@ class WebControllerTest {
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(true);
         RedirectAttributes redirectAttributes = mock(RedirectAttributes.class);
+        
+        Model model = mock(Model.class);
 
         // Act
-        String viewName = webController.guardarEmpleado(invalidEmpleadoDTO, bindingResult, redirectAttributes);
+        String viewName = webController.guardarEmpleado(invalidEmpleadoDTO, bindingResult, model, redirectAttributes);
 
         // Assert
         assertEquals("form", viewName);
@@ -228,9 +236,11 @@ class WebControllerTest {
         BindingResult bindingResult = mock(BindingResult.class);
         when(bindingResult.hasErrors()).thenReturn(true);
         RedirectAttributes redirectAttributes = mock(RedirectAttributes.class);
+        
+        Model model = mock(Model.class);
 
         // Act
-        String viewName = webController.actualizarEmpleado(1L, invalidEmpleadoDTO, bindingResult, redirectAttributes);
+        String viewName = webController.actualizarEmpleado(1L, invalidEmpleadoDTO, bindingResult, model, redirectAttributes);
 
         // Assert
         assertEquals("form", viewName);

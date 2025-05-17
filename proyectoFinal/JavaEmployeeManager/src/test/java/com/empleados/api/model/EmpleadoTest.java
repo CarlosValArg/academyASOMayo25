@@ -26,7 +26,8 @@ class EmpleadoTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         // Segundo objeto con valores diferentes
@@ -37,7 +38,8 @@ class EmpleadoTest {
                 "ana.garcia@example.com",
                 LocalDate.of(2019, 5, 10),
                 new BigDecimal("48000.00"),
-                "Recursos Humanos"
+                "Recursos Humanos",
+                TipoContrato.TIEMPO_INDETERMINADO
         );
 
         // Tercer objeto idéntico al primero para pruebas de equals y hashCode
@@ -48,7 +50,8 @@ class EmpleadoTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         // Objeto nulo para pruebas de equals
@@ -142,7 +145,8 @@ class EmpleadoTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
         
         // Debería ser distinto porque el nombre cambió
@@ -156,7 +160,8 @@ class EmpleadoTest {
                 "juan.modificado@example.com", // email distinto
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
         
         // Debería ser distinto porque el email cambió
@@ -174,7 +179,8 @@ class EmpleadoTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
         
         Empleado emp2WithNullId = new Empleado(
@@ -184,7 +190,8 @@ class EmpleadoTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("50000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
         
         // Deberían ser iguales basado en los otros campos

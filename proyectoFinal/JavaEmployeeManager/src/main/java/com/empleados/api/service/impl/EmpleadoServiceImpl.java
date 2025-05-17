@@ -90,6 +90,9 @@ public class EmpleadoServiceImpl implements EmpleadoService {
         if (empleadoDTO.getDepartamento() != null) {
             existingEmpleado.setDepartamento(empleadoDTO.getDepartamento());
         }
+        if (empleadoDTO.getTipoContrato() != null) {
+            existingEmpleado.setTipoContrato(empleadoDTO.getTipoContrato());
+        }
 
         Empleado updatedEmpleado = empleadoRepository.save(existingEmpleado);
         return convertToDTO(updatedEmpleado);

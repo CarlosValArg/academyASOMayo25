@@ -1,6 +1,7 @@
 package com.empleados.api.repository;
 
 import com.empleados.api.model.Empleado;
+import com.empleados.api.model.TipoContrato;
 import com.empleados.api.util.TestDataBuilder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -69,7 +70,7 @@ class EmpleadoRepositoryTest {
         
         Empleado empleado3 = new Empleado(null, "Pedro", "Sánchez", 
                 "pedro.sanchez@example.com", LocalDate.of(2021, 3, 5), 
-                new BigDecimal("52000.00"), "Tecnología");
+                new BigDecimal("52000.00"), "Tecnología", TipoContrato.CAPACITACION_INICIAL);
         
         entityManager.persist(empleado1);
         entityManager.persist(empleado2);

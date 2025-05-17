@@ -2,6 +2,7 @@ package com.empleados.api.controller;
 
 import com.empleados.api.dto.EmpleadoDTO;
 import com.empleados.api.exception.ResourceNotFoundException;
+import com.empleados.api.model.TipoContrato;
 import com.empleados.api.service.EmpleadoService;
 import com.empleados.api.util.TestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -132,7 +133,8 @@ class EmpleadoControllerTest {
                 newEmpleadoDTO.getEmail(),
                 newEmpleadoDTO.getFechaContratacion(),
                 newEmpleadoDTO.getSalario(),
-                newEmpleadoDTO.getDepartamento()
+                newEmpleadoDTO.getDepartamento(),
+                newEmpleadoDTO.getTipoContrato()
         );
         
         when(empleadoService.createEmpleado(any(EmpleadoDTO.class))).thenReturn(createdEmpleadoDTO);
@@ -193,7 +195,8 @@ class EmpleadoControllerTest {
                 "juan.perez@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("55000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         when(empleadoService.updateEmpleado(eq(1L), any(EmpleadoDTO.class))).thenReturn(updatedDTO);
@@ -238,7 +241,8 @@ class EmpleadoControllerTest {
                 "ana.garcia@example.com",
                 LocalDate.of(2020, 1, 15),
                 new BigDecimal("55000.00"),
-                "Tecnología"
+                "Tecnología",
+                TipoContrato.TIEMPO_DETERMINADO
         );
 
         when(empleadoService.updateEmpleado(eq(1L), any(EmpleadoDTO.class)))

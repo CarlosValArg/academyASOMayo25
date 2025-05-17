@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import com.empleados.api.model.TipoContrato;
+
 /**
  * DTO for transferring employee data between layers
  */
@@ -37,4 +39,7 @@ public class EmpleadoDTO {
     private BigDecimal salario;
 
     private String departamento;
+    
+    @NotNull(message = "El tipo de contrato es obligatorio")
+    private TipoContrato tipoContrato;
 }
